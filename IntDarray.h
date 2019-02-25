@@ -38,6 +38,10 @@ void darray_push(IntDarray darray, int i) {
 
 
 int darray_pop(IntDarray darray) {
+	if (darray->len == 0) {
+		return 0;
+	}
+
 	int i = darray->array[darray->len-1];
 
 	darray->array = (int *)realloc(darray->array, sizeof(int)*darray->len-1);
