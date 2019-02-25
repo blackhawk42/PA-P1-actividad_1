@@ -38,6 +38,7 @@ IntDarray new_IntDarray(int *init_values, size_t init_length) {
 
 /**
  * destroy_darray destroys the given IntDarray and frees it's memory.
+ *
  * @param darray The IntDarray to destroy.
  */
 void destroy_IntDarray(IntDarray darray) {
@@ -47,6 +48,7 @@ void destroy_IntDarray(IntDarray darray) {
 
 /**
  * darray_push pushes a new value at the end of a dynamic array.
+ *
  * @param darray The dynamic array to push into.
  * @param i      The integer to push.
  */
@@ -60,6 +62,10 @@ void IntDarray_push(IntDarray darray, int i) {
 
 /**
  * darray_pop pops the last value of the dynamic array.
+ *
+ * In the case of an empty IntDarray, this will simply return 0 without
+ * modification to the IntDarray.
+ *
  * @param darray The dynamic array to pop from.
  * @return       The popped integer.
  */
@@ -79,6 +85,7 @@ int IntDarray_pop(IntDarray darray) {
 
 /**
  * Utility function to print an IntDarray.
+ *
  * @param darray IntArray to print.
  */
 void print_IntDarray(IntDarray darray) {
