@@ -14,12 +14,12 @@ int main(int argc, char const *argv[]) {
 		initial_values[i-1] = atoi(argv[i]);
 	}
 
-	IntDarray darray = new_darray(initial_values, init_length);
+	IntDarray darray = new_IntDarray(initial_values, init_length);
 
 	free(initial_values);
 
 	printf("Current array:\n");
-	print_darray(darray);
+	print_IntDarray(darray);
 	printf("\n");
 
 	int new_i;
@@ -27,18 +27,18 @@ int main(int argc, char const *argv[]) {
 	scanf("%d", &new_i);
 	fflush(stdin);
 
-	darray_push(darray, new_i);
+	IntDarray_push(darray, new_i);
 
 	printf("New array:\n");
-	print_darray(darray);
+	print_IntDarray(darray);
 	printf("\n");
 
-	printf("Removig an element from the array: %d\n", darray_pop(darray));
+	printf("Removig an element from the array: %d\n", IntDarray_pop(darray));
 
 	printf("New array:\n");
 
-	print_darray(darray);
-	destroy_darray(darray);
+	print_IntDarray(darray);
+	destroy_IntDarray(darray);
 
 	return 0;
 }

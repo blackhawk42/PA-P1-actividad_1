@@ -23,7 +23,7 @@ typedef struct {
  * @param  init_length Length of the initial array and of the new IntDarray.
  * @return             The new IntDarray.
  */
-IntDarray new_darray(int *init_values, size_t init_length) {
+IntDarray new_IntDarray(int *init_values, size_t init_length) {
 	IntDarray darray = (IntDarray)malloc(sizeof(IntDarray_s));
 
 	darray->array = (int *)malloc(sizeof(int)*init_length);
@@ -40,7 +40,7 @@ IntDarray new_darray(int *init_values, size_t init_length) {
  * destroy_darray destroys the given IntDarray and frees it's memory.
  * @param darray The IntDarray to destroy.
  */
-void destroy_darray(IntDarray darray) {
+void destroy_IntDarray(IntDarray darray) {
 	free(darray->array);
 	free(darray);
 }
@@ -50,7 +50,7 @@ void destroy_darray(IntDarray darray) {
  * @param darray The dynamic array to push into.
  * @param i      The integer to push.
  */
-void darray_push(IntDarray darray, int i) {
+void IntDarray_push(IntDarray darray, int i) {
 	darray->array = (int *)realloc(darray->array, sizeof(int)*darray->len+1);
 
 	darray->array[darray->len] = i;
@@ -63,7 +63,7 @@ void darray_push(IntDarray darray, int i) {
  * @param darray The dynamic array to pop from.
  * @return       The popped integer.
  */
-int darray_pop(IntDarray darray) {
+int IntDarray_pop(IntDarray darray) {
 	if (darray->len == 0) {
 		return 0;
 	}
@@ -81,7 +81,7 @@ int darray_pop(IntDarray darray) {
  * Utility function to print an IntDarray.
  * @param darray IntArray to print.
  */
-void print_darray(IntDarray darray) {
+void print_IntDarray(IntDarray darray) {
 	printf("IntDarray{ ");
 	for(int i = 0; i < darray->len; i++) {
 		printf("%d ", darray->array[i]);
