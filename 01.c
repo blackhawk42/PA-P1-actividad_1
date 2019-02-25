@@ -38,6 +38,7 @@ int main(int argc, char const *argv[]) {
 	printf("New array:\n");
 
 	print_darray(darray);
+	destroy_darray(darray);
 
 	return 0;
 }
