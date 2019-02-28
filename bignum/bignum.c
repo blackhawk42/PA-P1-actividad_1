@@ -58,7 +58,7 @@ int to_bool(Bignum bn) {
 
 void print_as_binary(Bignum bn) {
     for(size_t i = 0; i < bn->size; i++) {
-        for(unsigned int current_bit = 128;
+        for(unsigned int current_bit = 2147483648;
         current_bit;
         current_bit = current_bit >> 1) {
             if(bn->array[i] & current_bit) {
@@ -73,5 +73,5 @@ void print_as_binary(Bignum bn) {
 }
 
 void print_as_dec(Bignum bn) {
-    
+
 }
