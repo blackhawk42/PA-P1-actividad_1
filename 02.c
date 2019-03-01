@@ -89,6 +89,7 @@ void pet_manager() {
     print_instructions();
     do {
         scanf("%c", &selection);
+        fflush(stdin);
 
         switch (selection){
             case '1': case 'i':
@@ -108,7 +109,7 @@ void pet_manager() {
                     pet_count ++;
                 }
 
-                scanf("%c", &selection);
+                print_instructions();
                 break;
             case '2': case 'd':
                 if (pet_count == 1){
@@ -120,7 +121,7 @@ void pet_manager() {
                     pet_count --;
                 }
 
-                scanf("%c", &selection);
+                print_instructions();
                 break;
             case '3': case 'p':
                 printf("\nThe amount of pets is: %d\n", pet_count);
@@ -128,20 +129,17 @@ void pet_manager() {
                     print_pet(head, 1);
                 printf("\n");
 
-                scanf("%c", &selection);
+                print_instructions();                
                 break;
             case '4': case 'q':
                 printf("Goodbye!\n");
-
-                scanf("%c", &selection);
                 break;
             default:
 
-                scanf("%c", &selection);
                 break;
         }
-        print_instructions();
-    } while (selection != 'q' || selection != '4');
+
+    } while (selection != 'q' && selection != '4');
 }
 
 int main() {
