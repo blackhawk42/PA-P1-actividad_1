@@ -34,7 +34,7 @@ $(DISTDIR):
 
 dist: $(SOURCES) | $(DISTDIR)
 	rm -rf $(DISTDIR)*
-	zip $(DISTDIR)$(ZIPFILE) $(SOURCES) $(HEADERS) $(README) Makefile
+	zip $(DISTDIR)$(ZIPFILE) *.c *.h bignum/* Makefile
 
 clean:
-	rm -rf $(EXES) $(DISTDIR)
+	rm -rf bignum/*.o *.o *.a *.exe $(DISTDIR)
