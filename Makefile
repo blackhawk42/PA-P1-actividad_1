@@ -8,10 +8,13 @@ README=README.md
 
 .PHONY: all dist clean run
 
-all: 01.exe 03.exe
+all: 01.exe 02.exe 03.exe
 
 01.exe: 01.c
 	gcc -o $@ 01.c
+
+02.exe: 02.c
+	gcc -o $@ 02.c
 
 bignum/arithmetic.o: bignum/arithmetic.c
 	gcc -o $@ -c bignum/arithmetic.c
