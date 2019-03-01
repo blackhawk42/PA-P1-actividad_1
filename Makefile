@@ -4,19 +4,29 @@ CFLAGS=
 DISTDIR=dists/
 ZIPFILE=actividad_1.zip
 
-SOURCES=$(wildcard *.c)
-OBJECTS=$(SOURCES:.c=.o)
-HEADERS=$(wildcard *.h)
-EXES=$(SOURCES:.c=.exe)
-
 README=README.md
 
 .PHONY: all dist clean run
 
-all: $(EXES)
+all: 01.exe 03.exe
 
-$(EXES): %.exe: %.c $(HEADERS)
-	$(CC) $(CFLAGS) -o $@ $<
+01.exe: 01.c
+	gcc -o $@ 01.c
+
+bignum/arithmetic.o: bignum/arithmetic.c
+	gcc -o $@ -c bignum/arithmetic.c
+
+bignum/bitwise.o: bignum/bitwise.c
+	gcc -o $@ -c bignum/bitwise.c
+
+bignum/bignum.o: bignum/bignum.c
+	gcc -o $@ -c bignum/bignum.c
+
+libbignum.a: bignum/arithmetic.o bignum/bitwise.o bignum/bignum.o bignum/bignum.h
+	ar rs $@ bignum/arithmetic.o bignum/bitwise.o bignum/bignum.o
+
+03.exe: 03.c libbignum.a
+	gcc -o $@ 03.c libbignum.a
 
 $(DISTDIR):
 	mkdir -p $(DISTDIR)
