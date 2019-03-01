@@ -41,8 +41,6 @@ Bignum enlarge_Bignum(Bignum bn, size_t new_size) {
         new_bn->array[i] = 0;
     }
 
-    //destroy_Bignum(bn);
-
     return new_bn;
 }
 
