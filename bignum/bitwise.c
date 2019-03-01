@@ -77,7 +77,7 @@ Bignum ls(Bignum bn) {
     unsigned int first_bit = 1;
     unsigned int last_bit = 2147483648;
 
-    for(size_t i = bn->size-1; i >= 0; i--) {
+    for(int i = bn->size-1; i >= 0; i--) {
         current_carry = bn->array[i] & last_bit;
 
         new_bn->array[i] = bn->array[i] << 1;
