@@ -29,4 +29,6 @@ Bignum rs(Bignum);
 
 Bignum add(Bignum, Bignum);
 
+Bignum Bignum_fibonacci(unsigned int, size_t);
+
 #endif /** BIGNUM_H */
