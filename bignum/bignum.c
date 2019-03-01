@@ -55,15 +55,20 @@ int to_bool(Bignum bn) {
 }
 
 void print_as_binary(Bignum bn) {
+    int leading_zeroes = 1;
+
     for(size_t i = 0; i < bn->size; i++) {
         for(unsigned int current_bit = 2147483648;
         current_bit;
         current_bit = current_bit >> 1) {
             if(bn->array[i] & current_bit) {
                 printf("1");
+                leading_zeroes = 0;
             }
             else {
-                printf("0");
+                if(!leading_zeroes) {
+                    printf("0");
+                }
             }
         }
     }
